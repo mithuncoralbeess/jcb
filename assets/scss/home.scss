@@ -1,0 +1,2356 @@
+// ==========================================
+// Home Page Styles (home.scss)
+// ==========================================
+
+$hero-bg: #121212 !default;
+$hero-yellow: #f4b01c !default;
+$hero-yellow-hover: #d99b13 !default;
+
+.hero-jcb-banner {
+  background-color: $hero-bg;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  // Viewport Height Calculation
+  min-height: calc(100vh - var(--header-height, 96px));
+  min-height: calc(100dvh - var(--header-height, 96px));
+
+  // ----------------------------------------
+  // Responsive Spacing & Padding
+  // ----------------------------------------
+  padding: 2.25rem 0;
+
+  @include media-up(sm) {
+    padding: 2.75rem 0;
+  }
+
+  @include media-up(md) {
+    padding: 3.5rem 0;
+  }
+
+  @include media-up(lg) {
+    padding: 4rem 0;
+  }
+
+  @include media-up(xl) {
+    padding: 4.5rem 0;
+  }
+
+  @include media-up(xxxl) {
+    padding: 5.5rem 0;
+  }
+
+  // ----------------------------------------
+  // Category Subtitle
+  // ----------------------------------------
+  .hero-subtitle {
+    font-size: 0.6875rem; // ~11px on mobile
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $hero-yellow;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+
+    .sep-dot {
+      color: rgba(244, 176, 28, 0.45);
+    }
+
+    @include media-up(sm) {
+      font-size: 0.75rem; // 12px
+      gap: 0.5rem;
+      letter-spacing: 1.2px;
+    }
+
+    @include media-up(xl) {
+      font-size: 0.8125rem; // 13px
+      letter-spacing: 1.4px;
+      margin-bottom: 1.25rem;
+    }
+
+    @include media-up(xxxl) {
+      font-size: 0.875rem; // 14px
+      letter-spacing: 1.6px;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  // ----------------------------------------
+  // Main Headline (h1 / .h1)
+  // Font sizes scale via base.scss responsive breakpoints
+  // ----------------------------------------
+  h1, .h1 {
+    font-family: "Oswald", "Poppins", sans-serif;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 1.25rem;
+
+    .text-yellow {
+      color: $hero-yellow;
+      display: block;
+    }
+
+    @include media-up(md) {
+      line-height: 1.04;
+      margin-bottom: 1.35rem;
+    }
+
+    @include media-up(lg) {
+      margin-bottom: 1.5rem;
+    }
+
+    @include media-up(xl) {
+      line-height: 1.02;
+      margin-bottom: 1.75rem;
+    }
+
+    @include media-up(xxxl) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  // ----------------------------------------
+  // Description Paragraph
+  // ----------------------------------------
+  .hero-description {
+    font-size: 0.875rem; // 14px on mobile
+    line-height: 1.6;
+    color: #a3a3a3;
+    max-width: 100%;
+    margin-bottom: 1.75rem;
+
+    @include media-up(sm) {
+      font-size: 0.9375rem; // 15px
+      max-width: 500px;
+    }
+
+    @include media-up(lg) {
+      max-width: 520px;
+      line-height: 1.65;
+      margin-bottom: 2rem;
+    }
+
+    @include media-up(xl) {
+      font-size: 1rem; // 16px
+      line-height: 1.7;
+      max-width: 560px;
+      margin-bottom: 2.25rem;
+    }
+
+    @include media-up(xxxl) {
+      font-size: 1.125rem; // 18px
+      line-height: 1.75;
+      max-width: 620px;
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  // ----------------------------------------
+  // CTA Action Buttons
+  // ----------------------------------------
+  .hero-cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.75rem;
+
+    @include media-up(sm) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    @include media-up(xl) {
+      gap: 1.25rem;
+      margin-bottom: 2.25rem;
+    }
+
+    // Primary Yellow Button
+    .btn-jcb-primary {
+      height: 44px;
+      background-color: $hero-yellow;
+      color: #000000;
+      border: none;
+      border-radius: 2px;
+      padding: 0 1.25rem;
+      font-size: 0.8125rem; // 13px
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      transition: background-color 0.15s ease, transform 0.15s ease;
+
+      @include media-up(sm) {
+        height: 46px;
+        padding: 0 1.5rem;
+        letter-spacing: 0.6px;
+        gap: 0.6rem;
+      }
+
+      @include media-up(xl) {
+        height: 50px;
+        padding: 0 1.75rem;
+        font-size: 0.875rem; // 14px
+      }
+
+      svg {
+        transition: transform 0.2s ease;
+      }
+
+      &:hover {
+        background-color: $hero-yellow-hover;
+        color: #000000;
+        transform: translateY(-1px);
+
+        svg {
+          transform: translateX(3px);
+        }
+      }
+    }
+
+    // Secondary Outline Button
+    .btn-jcb-outline {
+      height: 44px;
+      background-color: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 2px;
+      padding: 0 1.25rem;
+      font-size: 0.8125rem; // 13px
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+
+      @include media-up(sm) {
+        height: 46px;
+        padding: 0 1.4rem;
+        gap: 0.6rem;
+      }
+
+      @include media-up(xl) {
+        height: 50px;
+        padding: 0 1.65rem;
+        font-size: 0.875rem; // 14px
+      }
+
+      svg {
+        color: #999999;
+        transition: color 0.2s ease;
+      }
+
+      &:hover {
+        border-color: #ffffff;
+        color: #ffffff;
+        background-color: rgba(255, 255, 255, 0.05);
+
+        svg {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+
+  // ----------------------------------------
+  // Quick Search Bar
+  // ----------------------------------------
+  .hero-quick-search {
+    width: 100%;
+    max-width: 100%;
+
+    @include media-up(sm) {
+      max-width: 440px;
+    }
+
+    @include media-up(lg) {
+      max-width: 480px;
+    }
+
+    @include media-up(xl) {
+      max-width: 520px;
+    }
+
+    @include media-up(xxxl) {
+      max-width: 560px;
+    }
+
+    .quick-search-form {
+      display: flex;
+      align-items: center;
+      background-color: #161616;
+      border: 1px solid #282828;
+      border-radius: 2px;
+      overflow: hidden;
+      transition: border-color 0.2s ease;
+
+      &:focus-within {
+        border-color: $hero-yellow;
+      }
+
+      .quick-search-input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        padding: 0.65rem 0.85rem;
+        font-size: 0.8125rem;
+        color: #ffffff;
+        outline: none;
+
+        @include media-up(sm) {
+          padding: 0.65rem 1rem;
+        }
+
+        @include media-up(xl) {
+          padding: 0.75rem 1.15rem;
+          font-size: 0.875rem;
+        }
+
+        &::placeholder {
+          color: #555555;
+          font-weight: 400;
+        }
+      }
+
+      .quick-search-btn {
+        background-color: #202020;
+        border: none;
+        border-left: 1px solid #282828;
+        color: #888888;
+        padding: 0.65rem 0.85rem;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: color 0.15s ease, background-color 0.15s ease;
+
+        @include media-up(sm) {
+          padding: 0.65rem 1rem;
+        }
+
+        @include media-up(xl) {
+          padding: 0.75rem 1.15rem;
+        }
+
+        &:hover {
+          color: $hero-yellow;
+          background-color: #262626;
+        }
+      }
+    }
+  }
+
+  // ----------------------------------------
+  // Right Equipment Showcase Column
+  // ----------------------------------------
+  .hero-showcase-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+
+    @include media-up(md) {
+      margin-top: 2.5rem;
+    }
+
+    @include media-up(lg) {
+      margin-top: 0;
+      justify-content: flex-end;
+    }
+
+    .showcase-frame {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      border-radius: 2px;
+      overflow: hidden;
+
+      @include media-up(sm) {
+        max-width: 360px;
+      }
+
+      @include media-up(md) {
+        max-width: 400px;
+      }
+
+      @include media-up(lg) {
+        max-width: 420px;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+      }
+
+      @include media-up(xl) {
+        max-width: 470px;
+      }
+
+      @include media-up(xxl) {
+        max-width: 500px;
+      }
+
+      @include media-up(xxxl) {
+        max-width: 540px;
+      }
+
+      .equipment-img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+// ==========================================
+// Standards & Certifications Strip
+// ==========================================
+.standards-strip {
+  background-color: $hero-yellow;
+  color: #000000;
+  width: 100%;
+  padding: 0.75rem 0;
+  position: relative;
+  z-index: 5;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  @include media-up(sm) {
+    padding: 0.875rem 0;
+  }
+
+  @include media-up(md) {
+    padding: 1rem 0;
+  }
+
+  @include media-up(xl) {
+    padding: 1.125rem 0;
+  }
+
+  @include media-up(xxxl) {
+    padding: 1.25rem 0;
+  }
+
+  .standards-track {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 0.4rem;
+    column-gap: 0;
+    text-align: center;
+    margin: 0 auto;
+
+    @include media-up(md) {
+      row-gap: 0.5rem;
+    }
+
+    @include media-up(xl) {
+      justify-content: space-between;
+    }
+  }
+
+  .standard-item {
+    font-family: "Oswald", "Poppins", sans-serif;
+    font-size: 0.6875rem; // ~11px on small mobile
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #000000;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    line-height: 1.2;
+    transition: opacity 0.15s ease;
+
+    @include media-up(sm) {
+      font-size: 0.75rem; // 12px
+      letter-spacing: 0.8px;
+    }
+
+    @include media-up(md) {
+      font-size: 0.8125rem; // 13px
+      letter-spacing: 0.9px;
+    }
+
+    @include media-up(lg) {
+      font-size: 0.8125rem; // 13px
+      letter-spacing: 1px;
+    }
+
+    @include media-up(xl) {
+      font-size: 0.84375rem; // ~13.5px
+      letter-spacing: 1.1px;
+    }
+
+    @include media-up(xxxl) {
+      font-size: 0.9375rem; // 15px
+      letter-spacing: 1.3px;
+    }
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+
+  .standard-divider {
+    color: #000000;
+    font-family: "Oswald", "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 0.6875rem;
+    padding: 0 0.4rem;
+    user-select: none;
+    opacity: 0.85;
+
+    @include media-up(sm) {
+      font-size: 0.75rem;
+      padding: 0 0.55rem;
+    }
+
+    @include media-up(md) {
+      font-size: 0.8125rem;
+      padding: 0 0.75rem;
+    }
+
+    @include media-up(lg) {
+      padding: 0 0.85rem;
+    }
+
+    @include media-up(xl) {
+      font-size: 0.84375rem;
+      padding: 0 1rem;
+    }
+
+    @include media-up(xxxl) {
+      font-size: 0.9375rem;
+      padding: 0 1.25rem;
+    }
+  }
+}
+
+// ==========================================
+// Product Range Section (Light Industrial Palette)
+// ==========================================
+.product-range-section {
+  background-color: #f6f3ec;
+  color: #111111;
+  padding: 3.25rem 0;
+  position: relative;
+
+  @include media-up(md) {
+    padding: 4.25rem 0;
+  }
+
+  @include media-up(lg) {
+    padding: 5.25rem 0;
+  }
+
+  @include media-up(xl) {
+    padding: 6rem 0;
+  }
+
+  @include media-up(xxxl) {
+    padding: 7rem 0;
+  }
+
+  // Header Row
+  .product-range-header {
+    margin-bottom: 2rem;
+
+    @include media-up(md) {
+      margin-bottom: 2.75rem;
+    }
+
+    @include media-up(xl) {
+      margin-bottom: 3.25rem;
+    }
+  }
+
+  // Tag: 01 — PRODUCT RANGE
+  .section-tag {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #b8860b;
+    margin-bottom: 0.65rem;
+    display: inline-block;
+
+    @include media-up(md) {
+      font-size: 0.8125rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.75rem;
+    }
+
+    @include media-up(xl) {
+      font-size: 0.875rem;
+      letter-spacing: 2.2px;
+    }
+  }
+
+  // Main Title: EQUIPMENT FOR EVERY LIFT
+  .section-title {
+    font-family: "Oswald", "Poppins", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #111111;
+    line-height: 1.05;
+    margin: 0;
+
+    @include media-up(md) {
+      line-height: 1.04;
+    }
+  }
+
+  // Browse full catalogue link
+  .btn-browse-catalogue {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #111111;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 1.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: color 0.15s ease, transform 0.15s ease;
+
+    @include media-up(md) {
+      font-size: 0.9375rem;
+      text-underline-offset: 6px;
+    }
+
+    @include media-up(xl) {
+      font-size: 1rem;
+    }
+
+    &:hover {
+      color: #b8860b;
+      text-decoration-color: #b8860b;
+      transform: translateX(3px);
+    }
+  }
+
+  // Product Range Card Grid
+  .product-range-card {
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+    background-color: #121212;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-decoration: none;
+    aspect-ratio: 241 / 346;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    @include media-up(sm) {
+      min-height: 340px;
+    }
+
+    @include media-up(lg) {
+      min-height: 380px;
+    }
+
+    @include media-up(xl) {
+      min-height: 410px;
+    }
+
+    @include media-up(xxxl) {
+      min-height: 440px;
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.18);
+
+      .card-img {
+        transform: scale(1.05);
+      }
+
+      .card-title {
+        color: #f4b01c;
+      }
+    }
+
+    .card-img-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      overflow: hidden;
+
+      .card-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+      }
+
+      // Dark gradient overlay to ensure perfect contrast and legibility
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(14, 14, 14, 0) 0%,
+          rgba(14, 14, 14, 0.1) 35%,
+          rgba(14, 14, 14, 0.75) 60%,
+          rgba(14, 14, 14, 0.96) 82%,
+          rgba(14, 14, 14, 1) 100%
+        );
+        pointer-events: none;
+      }
+    }
+
+    .card-body-content {
+      position: relative;
+      z-index: 2;
+      padding: 1.15rem;
+
+      @include media-up(md) {
+        padding: 1.25rem;
+      }
+
+      @include media-up(xl) {
+        padding: 1.4rem;
+      }
+
+      @include media-up(xxxl) {
+        padding: 1.6rem;
+      }
+
+      .card-tag {
+        font-family: "Poppins", sans-serif;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #f4b01c;
+        display: block;
+        margin-bottom: 0.4rem;
+
+        @include media-up(xl) {
+          font-size: 0.75rem;
+          letter-spacing: 1.2px;
+          margin-bottom: 0.5rem;
+        }
+      }
+
+      .card-title {
+        font-family: "Oswald", "Poppins", sans-serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: #ffffff;
+        margin-bottom: 0.5rem;
+        transition: color 0.2s ease;
+
+        @include media-up(md) {
+          font-size: 1.35rem;
+        }
+
+        @include media-up(xl) {
+          font-size: 1.45rem;
+          margin-bottom: 0.65rem;
+        }
+
+        @include media-up(xxxl) {
+          font-size: 1.6rem;
+        }
+      }
+
+      .card-desc {
+        font-family: "Poppins", sans-serif;
+        font-size: 0.75rem;
+        line-height: 1.45;
+        color: #a8a8a8;
+        margin-bottom: 0;
+
+        @include media-up(sm) {
+          font-size: 0.8125rem;
+          line-height: 1.5;
+        }
+
+        @include media-up(xl) {
+          font-size: 0.84375rem;
+        }
+
+        @include media-up(xxxl) {
+          font-size: 0.875rem;
+        }
+      }
+    }
+  }
+}
+
+// ==========================================
+// 02 Most-Quoted Equipment Section
+// ==========================================
+.most-quoted-section {
+  background-color: #ffffff;
+  color: #111111;
+  padding: 3.5rem 0;
+  position: relative;
+
+  @include media-up(md) {
+    padding: 4.5rem 0;
+  }
+
+  @include media-up(lg) {
+    padding: 5.5rem 0;
+  }
+
+  @include media-up(xxxl) {
+    padding: 6.5rem 0;
+  }
+
+  // Header Row
+  .most-quoted-header {
+    margin-bottom: 2rem;
+
+    @include media-up(md) {
+      margin-bottom: 2.5rem;
+    }
+
+    @include media-up(xl) {
+      margin-bottom: 3rem;
+    }
+  }
+
+  // Section Tag: 02 — IN DEMAND
+  .section-tag {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #b8860b;
+    margin-bottom: 0.65rem;
+    display: inline-block;
+
+    @include media-up(md) {
+      font-size: 0.8125rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.75rem;
+    }
+
+    @include media-up(xl) {
+      font-size: 0.875rem;
+      letter-spacing: 2.2px;
+    }
+  }
+
+  // Section Title: MOST-QUOTED EQUIPMENT
+  .section-title {
+    font-family: "Oswald", "Poppins", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #111111;
+    line-height: 1.05;
+    margin: 0;
+
+    @include media-up(md) {
+      line-height: 1.04;
+    }
+  }
+
+  // Carousel Controls
+  .slider-nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: flex-start;
+
+    @include media-up(md) {
+      justify-content: flex-end;
+    }
+
+    .slider-nav-btn {
+      width: 42px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 2px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.2s ease;
+
+      @include media-up(xl) {
+        width: 44px;
+        height: 44px;
+      }
+
+      &.btn-prev {
+        background-color: transparent;
+        border: 1px solid #111111;
+        color: #111111;
+
+        &:hover {
+          background-color: #111111;
+          color: #ffffff;
+        }
+      }
+
+      &.btn-next {
+        background-color: #111111;
+        border: 1px solid #111111;
+        color: #ffffff;
+
+        &:hover {
+          background-color: #f4b01c;
+          border-color: #f4b01c;
+          color: #000000;
+        }
+      }
+
+      &.swiper-button-disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+    }
+  }
+
+  // Swiper Carousel Container
+  .most-quoted-swiper {
+    width: 100%;
+    overflow: hidden;
+    padding: 0.5rem 0.25rem 1rem;
+    margin: -0.5rem -0.25rem -1rem;
+
+    .swiper-wrapper {
+      align-items: stretch;
+    }
+
+    .swiper-slide {
+      height: auto;
+      display: flex;
+    }
+  }
+
+  // Equipment Card
+  .equipment-quote-card {
+    background-color: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: 2px;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      border-color: #d0d0d0;
+
+      .equipment-img {
+        transform: scale(1.04);
+      }
+    }
+
+    .equipment-img-box {
+      width: 100%;
+      position: relative;
+      background-color: #f4f4f4;
+      overflow: hidden;
+      aspect-ratio: 226 / 229;
+
+      .equipment-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.35s cubic-bezier(0.2, 0, 0.2, 1);
+      }
+    }
+
+    .equipment-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      @include media-up(xl) {
+        padding: 1.35rem;
+      }
+
+      .equipment-series {
+        font-family: "Poppins", sans-serif;
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #888888;
+        margin-bottom: 0.35rem;
+        display: block;
+
+        @include media-up(xl) {
+          font-size: 0.75rem;
+        }
+      }
+
+      .equipment-name {
+        font-family: "Oswald", "Poppins", sans-serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: 0.4px;
+        color: #111111;
+        margin-bottom: 0.75rem;
+        text-transform: capitalize;
+
+        @include media-up(md) {
+          font-size: 1.35rem;
+        }
+
+        @include media-up(xl) {
+          font-size: 1.45rem;
+        }
+      }
+
+      .equipment-spec-badges {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-bottom: 1.25rem;
+
+        .spec-badge {
+          font-family: "Poppins", sans-serif;
+          font-size: 0.6875rem;
+          font-weight: 700;
+          line-height: 1;
+          padding: 0.35rem 0.55rem;
+          border-radius: 2px;
+          display: inline-flex;
+          align-items: center;
+          white-space: nowrap;
+
+          &.badge-dark {
+            background-color: #161616;
+            color: #f4b01c;
+          }
+
+          &.badge-light {
+            background-color: #f0f0f0;
+            color: #444444;
+            font-weight: 600;
+          }
+        }
+      }
+
+      .equipment-action-row {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        .btn-add-quote {
+          flex: 1;
+          height: 40px;
+          background-color: #161616;
+          color: #ffffff;
+          border: none;
+          border-radius: 2px;
+          font-family: "Poppins", sans-serif;
+          font-size: 0.75rem;
+          font-weight: 700;
+          letter-spacing: 0.6px;
+          text-transform: uppercase;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.35rem;
+          text-decoration: none;
+          transition: background-color 0.15s ease, color 0.15s ease;
+
+          @include media-up(xl) {
+            height: 42px;
+            font-size: 0.8125rem;
+          }
+
+          &:hover {
+            background-color: #f4b01c;
+            color: #000000;
+          }
+        }
+
+        .btn-quick-view {
+          width: 40px;
+          height: 40px;
+          background-color: transparent;
+          border: 1px solid #dcdcdc;
+          border-radius: 2px;
+          color: #111111;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+          transition: all 0.15s ease;
+
+          @include media-up(xl) {
+            width: 42px;
+            height: 42px;
+          }
+
+          &:hover {
+            border-color: #111111;
+            background-color: #f8f8f8;
+            color: #000000;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ==========================================
+// 03 Industries Section (Dark Worksite Theme)
+// ==========================================
+.industries-section {
+  background-color: #121212;
+  color: #ffffff;
+  padding: 3.5rem 0;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+  @include media-up(md) {
+    padding: 4.5rem 0;
+  }
+
+  @include media-up(lg) {
+    padding: 5.5rem 0;
+  }
+
+  @include media-up(xxxl) {
+    padding: 6.5rem 0;
+  }
+
+  // Header Row
+  .industries-header {
+    margin-bottom: 2.25rem;
+
+    @include media-up(md) {
+      margin-bottom: 3rem;
+    }
+
+    @include media-up(xl) {
+      margin-bottom: 3.5rem;
+    }
+  }
+
+  // Section Tag: 03 — INDUSTRIES
+  .section-tag {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #f4b01c;
+    margin-bottom: 0.65rem;
+    display: inline-block;
+
+    @include media-up(md) {
+      font-size: 0.8125rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.75rem;
+    }
+
+    @include media-up(xl) {
+      font-size: 0.875rem;
+      letter-spacing: 2.2px;
+    }
+  }
+
+  // Main Section Title
+  .section-title {
+    font-family: "Oswald", "Poppins", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    line-height: 1.05;
+    margin: 0;
+
+    @include media-up(md) {
+      line-height: 1.04;
+    }
+  }
+
+  // Section Lead Paragraph (Right Side)
+  .section-lead {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: #8c8c8c;
+    margin: 0;
+    max-width: 480px;
+
+    @include media-up(md) {
+      font-size: 0.9375rem;
+    }
+
+    @include media-up(xl) {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+  }
+
+  // Connected Industries Grid Frame
+  .industries-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: #161616;
+    border-radius: 2px;
+    overflow: hidden;
+
+    @include media-up(sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include media-up(lg) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  // Industry Column Card
+  .industry-card {
+    padding: 1.5rem 1.25rem;
+    background-color: #141414;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    position: relative;
+
+    @include media-up(sm) {
+      &:nth-child(odd) {
+        border-right: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      &:last-child {
+        grid-column: span 2;
+      }
+    }
+
+    @include media-up(lg) {
+      padding: 1.75rem 1.35rem 2rem;
+      border-bottom: none;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+
+      &:nth-child(odd) {
+        border-right: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      &:last-child {
+        grid-column: span 1;
+        border-right: none;
+      }
+    }
+
+    @include media-up(xl) {
+      padding: 2rem 1.5rem 2.25rem;
+    }
+
+    @include media-up(xxxl) {
+      padding: 2.25rem 1.75rem 2.5rem;
+    }
+
+    // Top subtle accent bar on hover
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: transparent;
+      transition: background-color 0.2s ease;
+    }
+
+    &:hover {
+      background-color: #1a1a1a;
+
+      &::before {
+        background-color: #f4b01c;
+      }
+
+      .industry-link {
+        color: #ffffff;
+
+        .arrow {
+          transform: translateX(4px);
+        }
+      }
+    }
+
+    .industry-num {
+      font-family: "Poppins", sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #f4b01c;
+      margin-bottom: 0.85rem;
+      display: block;
+
+      @include media-up(xl) {
+        font-size: 0.8125rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .industry-title {
+      font-family: "Oswald", "Poppins", sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0.3px;
+      text-transform: capitalize;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+
+      @include media-up(sm) {
+        font-size: 1.2rem;
+      }
+
+      @include media-up(xl) {
+        font-size: 1.25rem;
+        margin-bottom: 0.85rem;
+      }
+
+      @include media-up(xxxl) {
+        font-size: 1.35rem;
+      }
+    }
+
+    .industry-desc {
+      font-family: "Poppins", sans-serif;
+      font-size: 0.75rem;
+      line-height: 1.55;
+      color: #8c8c8c;
+      margin-bottom: 1.25rem;
+
+      @include media-up(sm) {
+        font-size: 0.8125rem;
+      }
+
+      @include media-up(xl) {
+        font-size: 0.84375rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    .industry-link {
+      margin-top: auto;
+      font-family: "Poppins", sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #f4b01c;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: color 0.15s ease;
+
+      @include media-up(xl) {
+        font-size: 0.8125rem;
+      }
+
+      .arrow {
+        transition: transform 0.2s ease;
+      }
+    }
+  }
+}
+
+// ==========================================
+// 04 Why JCB Lift Tech Section
+// ==========================================
+.why-jcb-section {
+  background-color: #121212;
+  color: #ffffff;
+  padding: 3.5rem 0;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+  @include media-up(md) {
+    padding: 4.5rem 0;
+  }
+
+  @include media-up(lg) {
+    padding: 5.5rem 0;
+  }
+
+  @include media-up(xxxl) {
+    padding: 6.5rem 0;
+  }
+
+  // Left Visual Showcase
+  .why-jcb-visual-col {
+    position: relative;
+    margin-bottom: 3.25rem;
+
+    @include media-up(lg) {
+      margin-bottom: 0;
+    }
+  }
+
+  .visual-wrapper {
+    position: relative;
+    max-width: 520px;
+    margin: 0 auto;
+
+    @include media-up(lg) {
+      margin: 0;
+      max-width: 100%;
+    }
+  }
+
+  .visual-frame {
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+    background-color: #161616;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+
+    .rigging-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+  }
+
+  // Floating Yellow Badge
+  .rigging-badge {
+    position: absolute;
+    bottom: -1rem;
+    right: 0;
+    background-color: #f4b01c;
+    color: #000000;
+    padding: 1.15rem 1.25rem;
+    border-radius: 2px;
+    width: 82%;
+    max-width: 250px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    z-index: 2;
+
+    @include media-up(sm) {
+      bottom: -1.25rem;
+      padding: 1.25rem 1.4rem;
+      width: 65%;
+      max-width: 260px;
+    }
+
+    @include media-up(xl) {
+      bottom: -1.5rem;
+      padding: 1.4rem 1.6rem;
+      max-width: 280px;
+    }
+
+    .badge-title {
+      font-family: "Oswald", "Poppins", sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.15;
+      text-transform: uppercase;
+      color: #000000;
+      margin-bottom: 0.35rem;
+
+      @include media-up(sm) {
+        font-size: 1.125rem;
+      }
+
+      @include media-up(xl) {
+        font-size: 1.2rem;
+        margin-bottom: 0.45rem;
+      }
+    }
+
+    .badge-desc {
+      font-family: "Poppins", sans-serif;
+      font-size: 0.6875rem;
+      line-height: 1.45;
+      color: #1a1a1a;
+      margin: 0;
+      font-weight: 500;
+
+      @include media-up(sm) {
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  // Right Content Column
+  .why-jcb-content-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include media-up(lg) {
+      padding-left: 2rem;
+    }
+
+    @include media-up(xl) {
+      padding-left: 3rem;
+    }
+  }
+
+  // Section Tag: 04 — WHY JCB LIFT TECH
+  .section-tag {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #f4b01c;
+    margin-bottom: 0.65rem;
+    display: inline-block;
+
+    @include media-up(md) {
+      font-size: 0.8125rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.75rem;
+    }
+
+    @include media-up(xl) {
+      font-size: 0.875rem;
+      letter-spacing: 2.2px;
+    }
+  }
+
+  // Main Section Title
+  .section-title {
+    font-family: "Oswald", "Poppins", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    line-height: 1.05;
+    margin-bottom: 2rem;
+
+    @include media-up(md) {
+      font-size: 2.35rem;
+      line-height: 1.04;
+      margin-bottom: 2.25rem;
+    }
+
+    @include media-up(lg) {
+      font-size: 2.65rem;
+    }
+
+    @include media-up(xl) {
+      font-size: 3rem;
+      margin-bottom: 2.75rem;
+    }
+
+    @include media-up(xxxl) {
+      font-size: 3.25rem;
+    }
+  }
+
+  // 2x2 Features Grid
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem 1.75rem;
+    margin-bottom: 2.5rem;
+
+    @include media-up(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem 2rem;
+    }
+
+    @include media-up(xl) {
+      gap: 2.25rem 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .feature-item {
+      .accent-bar {
+        height: 2px;
+        width: 100%;
+        background-color: #b8860b;
+        margin-bottom: 1.15rem;
+
+        @include media-up(md) {
+          margin-bottom: 1.25rem;
+        }
+      }
+
+      .feature-title {
+        font-family: "Poppins", sans-serif;
+        font-size: 0.9375rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 0.45rem;
+        line-height: 1.25;
+
+        @include media-up(md) {
+          font-size: 1rem;
+        }
+      }
+
+      .feature-desc {
+        font-family: "Poppins", sans-serif;
+        font-size: 0.8125rem;
+        line-height: 1.6;
+        color: #8c8c8c;
+        margin-bottom: 0;
+
+        @include media-up(md) {
+          font-size: 0.84375rem;
+        }
+
+        @include media-up(xl) {
+          font-size: 0.875rem;
+        }
+      }
+    }
+  }
+
+  // Bottom Stats Strip
+  .stats-strip {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    @include media-up(sm) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      padding-top: 2rem;
+    }
+
+    .stat-box {
+      @include media-up(sm) {
+        padding-right: 1.25rem;
+
+        &:not(:first-child) {
+          border-left: 1px solid rgba(255, 255, 255, 0.1);
+          padding-left: 1.25rem;
+        }
+      }
+
+      @include media-up(xl) {
+        padding-right: 1.75rem;
+
+        &:not(:first-child) {
+          padding-left: 1.75rem;
+        }
+      }
+
+      .stat-val {
+        font-family: "Oswald", sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #f4b01c;
+        line-height: 1.1;
+        margin-bottom: 0.35rem;
+
+        @include media-up(md) {
+          font-size: 2.25rem;
+        }
+
+        @include media-up(xl) {
+          font-size: 2.5rem;
+        }
+      }
+
+      .stat-lbl {
+        font-family: "Poppins", sans-serif;
+        font-size: 0.75rem;
+        color: #8c8c8c;
+        line-height: 1.4;
+        text-transform: lowercase;
+
+        @include media-up(md) {
+          font-size: 0.8125rem;
+        }
+      }
+    }
+  }
+}
+
+// ==========================================
+// 05 Get a Quote Section
+// ==========================================
+.quote-section {
+  background-color: #f4b01c;
+  color: #111111;
+  padding: 3.5rem 0;
+  position: relative;
+
+  @include media-up(md) {
+    padding: 4.5rem 0;
+  }
+
+  @include media-up(lg) {
+    padding: 5.5rem 0;
+  }
+
+  @include media-up(xxxl) {
+    padding: 6.5rem 0;
+  }
+
+  // Left Content Column
+  .quote-content-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+
+    @include media-up(lg) {
+      margin-bottom: 0;
+      padding-right: 2.5rem;
+    }
+
+    @include media-up(xl) {
+      padding-right: 3.5rem;
+    }
+  }
+
+  // Section Tag: 05 — GET A QUOTE
+  .section-tag {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #111111;
+    margin-bottom: 0.65rem;
+    display: inline-block;
+
+    @include media-up(md) {
+      font-size: 0.8125rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.75rem;
+    }
+
+    @include media-up(xl) {
+      font-size: 0.875rem;
+      letter-spacing: 2.2px;
+    }
+  }
+
+  // Main Section Title
+  .section-title {
+    font-family: "Oswald", "Poppins", sans-serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #111111;
+    line-height: 1.02;
+    margin-bottom: 1.75rem;
+
+    @include media-up(md) {
+      font-size: 2.75rem;
+      line-height: 1.02;
+      margin-bottom: 2rem;
+    }
+
+    @include media-up(lg) {
+      font-size: 3.25rem;
+    }
+
+    @include media-up(xl) {
+      font-size: 3.85rem;
+      margin-bottom: 2.5rem;
+    }
+
+    @include media-up(xxxl) {
+      font-size: 4.25rem;
+    }
+  }
+
+  // Steps List (01, 02, 03)
+  .quote-steps-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+
+    @include media-up(md) {
+      margin-bottom: 2.25rem;
+    }
+
+    @include media-up(xl) {
+      margin-bottom: 2.75rem;
+    }
+
+    .quote-step-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 0.85rem;
+
+      @include media-up(md) {
+        margin-bottom: 1rem;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .step-num {
+        font-family: "Poppins", sans-serif;
+        font-size: 0.875rem;
+        font-weight: 800;
+        color: #111111;
+        margin-right: 0.85rem;
+        flex-shrink: 0;
+        line-height: 1.45;
+
+        @include media-up(md) {
+          font-size: 0.9375rem;
+          margin-right: 1rem;
+        }
+      }
+
+      .step-text {
+        font-family: "Poppins", sans-serif;
+        font-size: 0.8125rem;
+        line-height: 1.45;
+        color: #111111;
+        font-weight: 500;
+
+        @include media-up(md) {
+          font-size: 0.875rem;
+        }
+
+        @include media-up(xl) {
+          font-size: 0.9375rem;
+        }
+      }
+    }
+  }
+
+  // WhatsApp Link
+  .whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #111111;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1.5px;
+    transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
+
+    @include media-up(md) {
+      font-size: 0.9375rem;
+      text-underline-offset: 5px;
+    }
+
+    @include media-up(xl) {
+      font-size: 1rem;
+    }
+
+    &:hover {
+      color: #000000;
+      opacity: 0.85;
+    }
+
+    .whatsapp-icon {
+      flex-shrink: 0;
+      stroke: currentColor;
+    }
+  }
+
+  // Right Form Column / Card
+  .quote-form-col {
+    display: flex;
+    align-items: center;
+  }
+
+  .quote-form-card {
+    background-color: #121212;
+    color: #ffffff;
+    border-radius: 2px;
+    padding: 1.75rem 1.5rem;
+    width: 100%;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+
+    @include media-up(sm) {
+      padding: 2.25rem 2rem;
+    }
+
+    @include media-up(md) {
+      padding: 2.5rem 2.25rem;
+    }
+
+    @include media-up(xl) {
+      padding: 2.75rem 2.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+
+      @include media-up(md) {
+        margin-bottom: 1.15rem;
+      }
+    }
+
+    .form-label {
+      font-family: "Poppins", sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #ffffff;
+      margin-bottom: 0.35rem;
+      display: block;
+
+      @include media-up(md) {
+        font-size: 0.8125rem;
+        margin-bottom: 0.45rem;
+      }
+    }
+
+    .form-control,
+    .form-select {
+      background-color: #1c1c1c;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
+      color: #ffffff;
+      font-family: "Poppins", sans-serif;
+      font-size: 0.8125rem;
+      padding: 0.65rem 0.85rem;
+      width: 100%;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+      @include media-up(md) {
+        font-size: 0.875rem;
+        padding: 0.75rem 1rem;
+      }
+
+      &:focus {
+        border-color: #f4b01c;
+        box-shadow: 0 0 0 1px #f4b01c;
+        outline: none;
+        background-color: #222222;
+        color: #ffffff;
+      }
+
+      &::placeholder {
+        color: #666666;
+      }
+    }
+
+    .form-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 12px 12px;
+      padding-right: 2.5rem;
+      cursor: pointer;
+
+      option {
+        background-color: #1c1c1c;
+        color: #ffffff;
+      }
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 80px;
+
+      @include media-up(md) {
+        min-height: 90px;
+      }
+    }
+
+    // Submit Button
+    .btn-quote-submit {
+      background-color: #f4b01c;
+      color: #000000;
+      font-family: "Oswald", "Poppins", sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 2px;
+      width: 100%;
+      padding: 0.85rem 1.5rem;
+      margin-top: 0.5rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: background-color 0.2s ease, transform 0.15s ease;
+
+      @include media-up(md) {
+        font-size: 1rem;
+        padding: 0.95rem 1.75rem;
+      }
+
+      &:hover {
+        background-color: #e5a312;
+        color: #000000;
+      }
+
+      &:active {
+        transform: translateY(1px);
+      }
+    }
+  }
+}
+
+// ==========================================
+// Site Footer Section
+// ==========================================
+.site-footer {
+  background-color: #0e0e0e;
+  color: #ffffff;
+  padding-top: 3.5rem;
+  padding-bottom: 2rem;
+  position: relative;
+
+  @include media-up(md) {
+    padding-top: 4.5rem;
+    padding-bottom: 2.25rem;
+  }
+
+  @include media-up(lg) {
+    padding-top: 5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  @include media-up(xxxl) {
+    padding-top: 5.5rem;
+  }
+
+  // Footer Columns Common
+  .footer-col {
+    margin-bottom: 2.25rem;
+
+    @include media-up(lg) {
+      margin-bottom: 0;
+    }
+  }
+
+  // Brand Column
+  .footer-brand {
+    display: inline-block;
+    margin-bottom: 1rem;
+
+    .footer-brand-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+
+      .brand-jcb-badge {
+        background-color: #f4b01c;
+        color: #000000;
+        font-family: "Oswald", "Poppins", sans-serif;
+        font-weight: 900;
+        font-size: 1.15rem;
+        letter-spacing: -0.5px;
+        padding: 2px 7px;
+        line-height: 1.15;
+        border-radius: 2px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .brand-text {
+        color: #ffffff;
+        font-family: "Oswald", "Poppins", sans-serif;
+        font-weight: 700;
+        font-size: 1.05rem;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        line-height: 1;
+      }
+    }
+  }
+
+  .footer-brand-desc {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: #8c8c8c;
+    margin-bottom: 1.5rem;
+    max-width: 320px;
+
+    @include media-up(md) {
+      font-size: 0.84375rem;
+    }
+  }
+
+  // Newsletter Section
+  .footer-newsletter-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.65rem;
+  }
+
+  .footer-newsletter-form {
+    max-width: 320px;
+
+    .newsletter-input-group {
+      display: flex;
+      align-items: stretch;
+      width: 100%;
+
+      .newsletter-input {
+        background-color: #1c1c1c;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-right: none;
+        border-radius: 2px 0 0 2px;
+        color: #ffffff;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.8125rem;
+        padding: 0.55rem 0.85rem;
+        flex: 1;
+        outline: none;
+        transition: border-color 0.2s ease;
+
+        @include media-up(md) {
+          font-size: 0.84375rem;
+          padding: 0.6rem 0.95rem;
+        }
+
+        &::placeholder {
+          color: #666666;
+        }
+
+        &:focus {
+          border-color: #f4b01c;
+          background-color: #222222;
+        }
+      }
+
+      .btn-newsletter-join {
+        background-color: #f4b01c;
+        color: #000000;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-size: 0.8125rem;
+        border: 1px solid #f4b01c;
+        border-radius: 0 2px 2px 0;
+        padding: 0.55rem 1.15rem;
+        cursor: pointer;
+        transition: background-color 0.2s ease, border-color 0.2s ease;
+        white-space: nowrap;
+
+        @include media-up(md) {
+          font-size: 0.84375rem;
+          padding: 0.6rem 1.25rem;
+        }
+
+        &:hover {
+          background-color: #e5a312;
+          border-color: #e5a312;
+          color: #000000;
+        }
+      }
+    }
+  }
+
+  // Column Headings
+  .footer-col-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1.15rem;
+
+    @include media-up(md) {
+      font-size: 1rem;
+      margin-bottom: 1.35rem;
+    }
+  }
+
+  // Navigation Links
+  .footer-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .footer-nav-item {
+      margin-bottom: 0.65rem;
+
+      @include media-up(md) {
+        margin-bottom: 0.75rem;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .footer-nav-link {
+        font-family: "Poppins", sans-serif;
+        font-size: 0.8125rem;
+        color: #8c8c8c;
+        text-decoration: none;
+        transition: color 0.2s ease, transform 0.15s ease;
+        display: inline-block;
+
+        @include media-up(md) {
+          font-size: 0.84375rem;
+        }
+
+        &:hover {
+          color: #ffffff;
+          transform: translateX(2px);
+        }
+      }
+    }
+  }
+
+  // Contact List
+  .footer-contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .footer-contact-item {
+      margin-bottom: 0.65rem;
+      font-family: "Poppins", sans-serif;
+      font-size: 0.8125rem;
+      color: #8c8c8c;
+      line-height: 1.5;
+
+      @include media-up(md) {
+        margin-bottom: 0.75rem;
+        font-size: 0.84375rem;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      a {
+        color: #8c8c8c;
+        text-decoration: none;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: #ffffff;
+        }
+      }
+
+      .footer-quote-link {
+        color: #f4b01c;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        margin-top: 0.35rem;
+        transition: color 0.2s ease, transform 0.15s ease;
+
+        &:hover {
+          color: #e5a312;
+          transform: translateX(2px);
+        }
+      }
+    }
+  }
+
+  // Bottom Bar
+  .footer-bottom-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 2.75rem;
+    padding-top: 1.5rem;
+
+    @include media-up(md) {
+      margin-top: 3.5rem;
+      padding-top: 1.75rem;
+    }
+
+    .copyright-text {
+      font-family: "Poppins", sans-serif;
+      font-size: 0.75rem;
+      color: #666666;
+      margin: 0;
+      line-height: 1.6;
+
+      @include media-up(md) {
+        font-size: 0.8125rem;
+      }
+    }
+
+    .footer-legal-links {
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+
+      @include media-up(md) {
+        margin: 0;
+        justify-content: flex-end;
+        gap: 1.5rem;
+      }
+
+      li a {
+        font-family: "Poppins", sans-serif;
+        font-size: 0.75rem;
+        color: #666666;
+        text-decoration: none;
+        transition: color 0.2s ease;
+
+        @include media-up(md) {
+          font-size: 0.8125rem;
+        }
+
+        &:hover {
+          color: #8c8c8c;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+

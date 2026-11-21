@@ -1,0 +1,380 @@
+// ==========================================
+// Header & Navigation Styles (JCB Theme)
+// ==========================================
+
+$topbar-bg: #0a0a0a !default;
+$header-bg: #121212 !default;
+$header-border: #1e1e1e !default;
+$header-height: 64px !default;
+
+$nav-link-color: #ffffff !default;
+$nav-link-hover-color: #f4b01c !default;
+$topbar-link-color: #8c8c8c !default;
+
+$jcb-yellow: #f4b01c !default;
+$jcb-yellow-hover: #d99b13 !default;
+
+// ==========================================
+// Top Information Bar
+// ==========================================
+.site-topbar {
+  background-color: $topbar-bg;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 6px 0;
+  font-size: 0.75rem; // ~12px
+  color: $topbar-link-color;
+
+  .topbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .topbar-left,
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .topbar-item {
+    display: inline-flex;
+    align-items: center;
+    color: $topbar-link-color;
+    text-decoration: none;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: #ffffff;
+    }
+
+    &.text-muted {
+      color: $topbar-link-color !important;
+    }
+  }
+
+  .topbar-sep {
+    color: rgba(255, 255, 255, 0.18);
+    margin: 0 0.2rem;
+  }
+}
+
+// ==========================================
+// Main Site Header & Navbar
+// ==========================================
+.site-header {
+  background-color: $header-bg;
+  border-bottom: 1px solid $header-border;
+  width: 100%;
+  position: relative;
+  z-index: 1020;
+
+  .navbar {
+    position: relative;
+    z-index: 2;
+    background-color: $header-bg;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+    min-height: $header-height;
+  }
+
+  // Brand Logo: JCB LIFT TECH
+  .navbar-brand {
+    padding: 0;
+    margin-right: 1.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+
+    @include media-up(xl) {
+      margin-right: 2.5rem;
+    }
+
+    .brand-jcb-badge {
+      background-color: $jcb-yellow;
+      color: #000000;
+      font-weight: 900;
+      font-size: 1.15rem;
+      letter-spacing: -0.5px;
+      padding: 2px 7px;
+      line-height: 1.15;
+      border-radius: 2px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-text {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+  }
+
+  // Navigation Links
+  .navbar-nav {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+
+    @include media-up(lg) {
+      flex-direction: row;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    @include media-up(xl) {
+      gap: 1.85rem;
+    }
+
+    .nav-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-size: 0.875rem; // ~14px
+      font-weight: 500;
+      color: $nav-link-color;
+      padding: 0.5rem 0;
+      position: relative;
+      transition: color 0.15s ease-in-out;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+
+      &:hover {
+        color: $jcb-yellow;
+      }
+
+      // Products (Highlighted yellow with caret)
+      &.highlight-link,
+      &.active {
+        color: $jcb-yellow;
+        font-weight: 600;
+      }
+
+      &.dropdown-toggle::after {
+        transition: transform 0.2s ease;
+        margin-left: 0.35rem;
+        vertical-align: 0.15em;
+      }
+    }
+  }
+
+  // Right Header Utilities
+  .header-actions {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: 0.5rem;
+
+    @include media-up(sm) {
+      gap: 0.65rem;
+    }
+
+    // Search Square Outline Button
+    .search-btn-box {
+      width: 38px;
+      height: 38px;
+      border: 1px solid #2a2a2a;
+      background: transparent;
+      color: #ffffff;
+      border-radius: 2px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.2s ease;
+
+      &:hover {
+        border-color: #444444;
+        color: $jcb-yellow;
+        background: rgba(255, 255, 255, 0.03);
+      }
+    }
+
+    // Quote List Outline Button
+    .quote-list-btn {
+      height: 38px;
+      border: 1px solid #2a2a2a;
+      background: transparent;
+      color: #ffffff;
+      border-radius: 2px;
+      padding: 0 0.85rem;
+      font-size: 0.8125rem; // ~13px
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+
+      svg {
+        color: #999999;
+      }
+
+      &:hover {
+        border-color: #444444;
+        color: $jcb-yellow;
+        background: rgba(255, 255, 255, 0.03);
+
+        svg {
+          color: $jcb-yellow;
+        }
+      }
+    }
+
+    // Request a Quote Solid Yellow Button
+    .btn-request-quote {
+      height: 38px;
+      background-color: $jcb-yellow;
+      color: #000000;
+      border: none;
+      border-radius: 2px;
+      padding: 0 1.15rem;
+      font-size: 0.75rem; // 12px
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background-color 0.15s ease;
+
+      &:hover {
+        background-color: $jcb-yellow-hover;
+        color: #000000;
+      }
+    }
+
+    // Mobile Toggler
+    .navbar-toggler {
+      border: 1px solid #2a2a2a;
+      padding: 0.35rem 0.55rem;
+      font-size: 1.1rem;
+      color: #ffffff;
+      background: transparent;
+
+      .navbar-toggler-icon {
+        filter: invert(1);
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+  // Slide Down Search Bar (Below Header, Dark JCB theme)
+  .header-search-overlay {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #161616;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+    border-top: 1px solid #222222;
+    border-bottom: 2px solid $jcb-yellow;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    padding: 0.85rem 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, visibility 0.35s;
+
+    &.is-open {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .search-form {
+      width: 100%;
+      gap: 0.75rem;
+      padding: 0;
+
+      .search-icon-prefix {
+        color: #71717a;
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      .search-input {
+        border: none;
+        border-radius: 0;
+        padding: 0.5rem 0.5rem;
+        font-size: 1.05rem;
+        color: #ffffff;
+        background: transparent;
+        box-shadow: none;
+
+        &::placeholder {
+          color: #71717a;
+          font-weight: 400;
+        }
+
+        &:focus {
+          box-shadow: none;
+          outline: none;
+        }
+      }
+
+      .search-submit-btn {
+        background-color: $jcb-yellow;
+        border-color: $jcb-yellow;
+        color: #000000;
+        font-weight: 700;
+        font-size: 0.875rem;
+        padding: 0.5rem 1.25rem;
+        border-radius: 2px;
+        flex-shrink: 0;
+        transition: background-color 0.15s ease;
+
+        &:hover {
+          background-color: $jcb-yellow-hover;
+          border-color: $jcb-yellow-hover;
+          color: #000000;
+        }
+      }
+
+      .search-close-btn {
+        background: transparent;
+        border: none;
+        padding: 0.35rem;
+        color: #9ca3af;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+        transition: color 0.15s ease, background-color 0.15s ease;
+        flex-shrink: 0;
+
+        &:hover {
+          color: #ffffff;
+          background-color: #262626;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,288 @@
+// ==========================================
+// Mega Menu Styles (JCB Theme)
+// ==========================================
+
+$megamenu-bg: #141414 !default;
+$megamenu-border: #222222 !default;
+$megamenu-yellow: #f4b01c !default;
+$megamenu-card-bg: #1a1a1a !default;
+
+.has-megamenu {
+  @include media-up(lg) {
+    position: static !important;
+
+    &:hover > .megamenu,
+    &.show > .megamenu,
+    > .megamenu:hover {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    &:hover > .nav-link.dropdown-toggle::after,
+    &.show > .nav-link.dropdown-toggle::after {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.megamenu {
+  background-color: $megamenu-bg;
+  border-top: 2px solid $megamenu-yellow;
+  border-bottom: 1px solid $megamenu-border;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  padding: 2rem 0 1.5rem;
+  margin: 0;
+  width: 100%;
+
+  @include media-up(lg) {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+
+    // Invisible hover bridge reaching upward into navbar to eliminate dead-zones
+    &::before {
+      content: "";
+      position: absolute;
+      top: -16px;
+      left: 0;
+      right: 0;
+      height: 16px;
+      background: transparent;
+      pointer-events: auto;
+    }
+  }
+
+  // Megamenu column title
+  .megamenu-category-title {
+    font-size: 0.8125rem; // ~13px
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: $megamenu-yellow;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #242424;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    svg {
+      color: $megamenu-yellow;
+      flex-shrink: 0;
+    }
+  }
+
+  // Megamenu link list
+  .megamenu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 0.6rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .megamenu-item-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8125rem; // 13px
+      color: #b0b0b0;
+      text-decoration: none;
+      transition: all 0.18s ease-in-out;
+      line-height: 1.4;
+
+      .item-bullet {
+        font-size: 0.65rem;
+        color: #555555;
+        transition: color 0.18s ease, transform 0.18s ease;
+      }
+
+      .badge-tag-sm {
+        font-size: 0.625rem;
+        font-weight: 700;
+        padding: 1px 5px;
+        border-radius: 2px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        margin-left: 0.35rem;
+
+        &.badge-electric {
+          background-color: rgba(34, 197, 94, 0.15);
+          color: #4ade80;
+          border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        &.badge-hot {
+          background-color: rgba(244, 176, 28, 0.18);
+          color: $megamenu-yellow;
+          border: 1px solid rgba(244, 176, 28, 0.35);
+        }
+      }
+
+      &:hover {
+        color: #ffffff;
+        transform: translateX(3px);
+
+        .item-bullet {
+          color: $megamenu-yellow;
+        }
+      }
+    }
+  }
+
+  // Featured equipment promotional card
+  .megamenu-featured-card {
+    background-color: $megamenu-card-bg;
+    border: 1px solid #262626;
+    border-radius: 4px;
+    padding: 1.25rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background-color: $megamenu-yellow;
+    }
+
+    .featured-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: $megamenu-yellow;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .featured-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: 0.5rem;
+    }
+
+    .featured-desc {
+      font-size: 0.75rem;
+      color: #999999;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .btn-featured-link {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #000000;
+      background-color: $megamenu-yellow;
+      padding: 0.45rem 0.9rem;
+      border-radius: 2px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      width: fit-content;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      transition: background-color 0.15s ease;
+
+      &:hover {
+        background-color: darken($megamenu-yellow, 8%);
+        color: #000000;
+      }
+    }
+  }
+
+  // Bottom Quick Info Strip
+  .megamenu-bottom-strip {
+    margin-top: 1.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid #222222;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.75rem;
+    color: #888888;
+
+    .strip-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      a {
+        color: $megamenu-yellow;
+        text-decoration: none;
+        font-weight: 600;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .strip-right {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+
+      a {
+        color: #aaaaaa;
+        text-decoration: none;
+        transition: color 0.15s ease;
+
+        &:hover {
+          color: #ffffff;
+        }
+      }
+    }
+    // Mobile specific adjustments nested inside class
+    @media (max-width: 991.98px) {
+      display: none;
+      border-top: 1px solid #222;
+      padding: 1rem 0;
+
+      &.show {
+        display: block;
+      }
+
+      .megamenu-category-title {
+        margin-top: 1rem;
+      }
+
+      .megamenu-bottom-strip {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+    }
+  }
+}

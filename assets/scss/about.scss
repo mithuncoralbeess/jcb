@@ -1,0 +1,187 @@
+// ==========================================
+// About Page Styles (about.scss)
+// ==========================================
+
+$about-bg: #121212 !default;
+$about-card-bg: #181818 !default;
+$about-yellow: #f4b01c !default;
+$about-text-muted: #a3a3a3 !default;
+
+.about-page {
+  background-color: $about-bg;
+  color: #ffffff;
+  min-height: 100vh;
+
+  // ----------------------------------------
+  // About Page Hero Section
+  // ----------------------------------------
+  .about-hero {
+    padding: 3rem 0;
+    text-align: center;
+    position: relative;
+
+    @include media-up(md) {
+      padding: 4.5rem 0;
+    }
+
+    @include media-up(lg) {
+      padding: 5.5rem 0;
+    }
+
+    @include media-up(xl) {
+      padding: 6.5rem 0;
+    }
+
+    .about-hero-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: $about-yellow;
+      margin-bottom: 1rem;
+      display: inline-block;
+
+      @include media-up(md) {
+        font-size: 0.8125rem;
+        letter-spacing: 2px;
+      }
+    }
+
+    h1, .h1 {
+      font-family: "Oswald", "Poppins", sans-serif;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+
+      @include media-up(md) {
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    .about-hero-lead {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: $about-text-muted;
+      max-width: 720px;
+      margin: 0 auto;
+
+      @include media-up(md) {
+        font-size: 1.125rem;
+      }
+
+      @include media-up(xl) {
+        font-size: 1.25rem;
+        max-width: 800px;
+      }
+    }
+  }
+
+  // ----------------------------------------
+  // About Stats Strip
+  // ----------------------------------------
+  .about-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 2.5rem 0;
+
+    @include media-up(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    @include media-up(lg) {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      padding: 3.5rem 0;
+    }
+
+    .about-stat-card {
+      background-color: $about-card-bg;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      padding: 1.75rem 1.25rem;
+      text-align: center;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+
+      @include media-up(md) {
+        padding: 2rem 1.5rem;
+      }
+
+      &:hover {
+        transform: translateY(-3px);
+        border-color: $about-yellow;
+      }
+
+      .stat-number {
+        font-family: "Oswald", sans-serif;
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: $about-yellow;
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+
+        @include media-up(md) {
+          font-size: 2.75rem;
+        }
+
+        @include media-up(xl) {
+          font-size: 3.25rem;
+        }
+      }
+
+      .stat-label {
+        font-size: 0.8125rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        color: #ffffff;
+        margin-bottom: 0.35rem;
+
+        @include media-up(md) {
+          font-size: 0.875rem;
+        }
+      }
+
+      .stat-desc {
+        font-size: 0.75rem;
+        color: $about-text-muted;
+        margin-bottom: 0;
+
+        @include media-up(md) {
+          font-size: 0.8125rem;
+        }
+      }
+    }
+  }
+
+  // ----------------------------------------
+  // About Content Section
+  // ----------------------------------------
+  .about-content-section {
+    padding: 3rem 0;
+
+    @include media-up(md) {
+      padding: 4.5rem 0;
+    }
+
+    @include media-up(lg) {
+      padding: 5.5rem 0;
+    }
+
+    .about-story-text {
+      font-size: 0.9375rem;
+      line-height: 1.75;
+      color: #cccccc;
+      margin-bottom: 1.5rem;
+
+      @include media-up(md) {
+        font-size: 1rem;
+        line-height: 1.8;
+      }
+
+      @include media-up(xl) {
+        font-size: 1.0625rem;
+      }
+    }
+  }
+}
