@@ -225,13 +225,17 @@ $megamenu-card-bg: #1a1a1a !default;
     margin-top: 1.75rem;
     padding-top: 1rem;
     border-top: 1px solid #222222;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
+    display: none;
     font-size: 0.75rem;
     color: #888888;
+
+    @include media-up(lg) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
 
     .strip-left {
       display: flex;
@@ -262,26 +266,6 @@ $megamenu-card-bg: #1a1a1a !default;
         &:hover {
           color: #ffffff;
         }
-      }
-    }
-    // Mobile specific adjustments nested inside class
-    @media (max-width: 991.98px) {
-      display: none;
-      border-top: 1px solid #222;
-      padding: 1rem 0;
-
-      &.show {
-        display: block;
-      }
-
-      .megamenu-category-title {
-        margin-top: 1rem;
-      }
-
-      .megamenu-bottom-strip {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
       }
     }
   }

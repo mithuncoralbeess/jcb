@@ -26,18 +26,41 @@ $jcb-yellow-hover: #d99b13 !default;
 
   .topbar-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 0.5rem;
+
+    @include media-up(md) {
+      justify-content: space-between;
+    }
   }
 
-  .topbar-left,
-  .topbar-right {
+  .topbar-left {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    justify-content: center;
+    gap: 0.75rem;
     flex-wrap: wrap;
+
+    @include media-up(sm) {
+      gap: 1.25rem;
+    }
+
+    @include media-up(md) {
+      justify-content: flex-start;
+      gap: 1.5rem;
+    }
+  }
+
+  .topbar-right {
+    display: none;
+    align-items: center;
+    gap: 1.5rem;
+
+    @include media-up(md) {
+      display: flex;
+    }
   }
 
   .topbar-item {
@@ -79,19 +102,82 @@ $jcb-yellow-hover: #d99b13 !default;
     padding-top: 0.65rem;
     padding-bottom: 0.65rem;
     min-height: $header-height;
+
+    > .container,
+    > .container-fluid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      @include media-up(lg) {
+        flex-wrap: nowrap;
+      }
+    }
+  }
+
+  // Navigation Collapse
+  .navbar-collapse {
+    order: 3;
+    width: 100%;
+    flex-basis: 100%;
+    padding-top: 0.75rem;
+
+    @include media-up(lg) {
+      order: 2;
+      width: auto;
+      flex-basis: auto;
+      display: flex !important;
+      justify-content: center;
+      flex-grow: 1;
+      margin: 0 1rem;
+      padding-top: 0;
+    }
+
+    @include media-up(xl) {
+      margin: 0 1.5rem;
+    }
   }
 
   // Brand Logo: JCB LIFT TECH
   .navbar-brand {
+    order: 1;
     padding: 0;
-    margin-right: 1.75rem;
+    margin-right: 0.5rem;
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.45rem;
     text-decoration: none;
+    flex-shrink: 0;
+
+    @include media-up(sm) {
+      margin-right: 1rem;
+      gap: 0.6rem;
+    }
 
     @include media-up(xl) {
+      margin-right: 1.75rem;
+    }
+
+    @include media-up(xxl) {
       margin-right: 2.5rem;
+    }
+
+    .brand-jcb-logo {
+      height: 26px;
+      width: auto;
+      border-radius: 2px;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+
+      @include media-up(sm) {
+        height: 28px;
+      }
+
+      @include media-up(md) {
+        height: 32px;
+      }
     }
 
     .brand-jcb-badge {
@@ -111,10 +197,15 @@ $jcb-yellow-hover: #d99b13 !default;
     .brand-text {
       color: #ffffff;
       font-weight: 700;
-      font-size: 1.05rem;
+      font-size: 0.875rem;
       letter-spacing: 0.5px;
       text-transform: uppercase;
       line-height: 1;
+      white-space: nowrap;
+
+      @include media-up(sm) {
+        font-size: 1.05rem;
+      }
     }
   }
 
@@ -127,10 +218,14 @@ $jcb-yellow-hover: #d99b13 !default;
     @include media-up(lg) {
       flex-direction: row;
       align-items: center;
-      gap: 1.5rem;
+      gap: 0.85rem;
     }
 
     @include media-up(xl) {
+      gap: 1.35rem;
+    }
+
+    @include media-up(xxl) {
       gap: 1.85rem;
     }
 
@@ -141,7 +236,7 @@ $jcb-yellow-hover: #d99b13 !default;
     }
 
     .nav-link {
-      font-size: 0.875rem; // ~14px
+      font-size: 0.8125rem; // ~13px on lg
       font-weight: 500;
       color: $nav-link-color;
       padding: 0.5rem 0;
@@ -151,6 +246,11 @@ $jcb-yellow-hover: #d99b13 !default;
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
+      white-space: nowrap;
+
+      @include media-up(xl) {
+        font-size: 0.875rem; // ~14px on xl+
+      }
 
       &:hover {
         color: $jcb-yellow;
@@ -173,19 +273,29 @@ $jcb-yellow-hover: #d99b13 !default;
 
   // Right Header Utilities
   .header-actions {
+    order: 2;
     display: flex;
     align-items: center;
     margin-left: auto;
-    gap: 0.5rem;
+    gap: 0.35rem;
+    flex-shrink: 0;
 
     @include media-up(sm) {
+      gap: 0.5rem;
+    }
+
+    @include media-up(lg) {
+      order: 3;
+    }
+
+    @include media-up(xl) {
       gap: 0.65rem;
     }
 
     // Search Square Outline Button
     .search-btn-box {
-      width: 38px;
-      height: 38px;
+      width: 34px;
+      height: 34px;
       border: 1px solid #2a2a2a;
       background: transparent;
       color: #ffffff;
@@ -196,6 +306,17 @@ $jcb-yellow-hover: #d99b13 !default;
       cursor: pointer;
       padding: 0;
       transition: all 0.2s ease;
+      flex-shrink: 0;
+
+      @include media-up(sm) {
+        width: 36px;
+        height: 36px;
+      }
+
+      @include media-up(xl) {
+        width: 38px;
+        height: 38px;
+      }
 
       &:hover {
         border-color: #444444;
@@ -206,20 +327,42 @@ $jcb-yellow-hover: #d99b13 !default;
 
     // Quote List Outline Button
     .quote-list-btn {
-      height: 38px;
+      height: 34px;
       border: 1px solid #2a2a2a;
       background: transparent;
       color: #ffffff;
       border-radius: 2px;
-      padding: 0 0.85rem;
-      font-size: 0.8125rem; // ~13px
+      padding: 0 0.5rem;
+      font-size: 0.75rem;
       font-weight: 500;
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
+      gap: 0.35rem;
       text-decoration: none;
       white-space: nowrap;
       transition: all 0.2s ease;
+      flex-shrink: 0;
+
+      span {
+        display: none;
+
+        @include media-up(sm) {
+          display: inline;
+        }
+      }
+
+      @include media-up(sm) {
+        height: 36px;
+        padding: 0 0.65rem;
+        font-size: 0.78rem;
+        gap: 0.45rem;
+      }
+
+      @include media-up(xl) {
+        height: 38px;
+        padding: 0 0.85rem;
+        font-size: 0.8125rem;
+      }
 
       svg {
         color: #999999;
@@ -238,13 +381,13 @@ $jcb-yellow-hover: #d99b13 !default;
 
     // Request a Quote Solid Yellow Button
     .btn-request-quote {
-      height: 38px;
+      height: 34px;
       background-color: $jcb-yellow;
       color: #000000;
       border: none;
       border-radius: 2px;
-      padding: 0 1.15rem;
-      font-size: 0.75rem; // 12px
+      padding: 0 0.65rem;
+      font-size: 0.6875rem;
       font-weight: 700;
       letter-spacing: 0.5px;
       text-transform: uppercase;
@@ -254,6 +397,19 @@ $jcb-yellow-hover: #d99b13 !default;
       text-decoration: none;
       white-space: nowrap;
       transition: background-color 0.15s ease;
+      flex-shrink: 0;
+
+      @include media-up(sm) {
+        height: 36px;
+        padding: 0 0.85rem;
+        font-size: 0.72rem;
+      }
+
+      @include media-up(xl) {
+        height: 38px;
+        padding: 0 1.15rem;
+        font-size: 0.75rem;
+      }
 
       &:hover {
         background-color: $jcb-yellow-hover;

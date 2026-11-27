@@ -10,7 +10,7 @@ $hero-yellow-hover: #d99b13 !default;
   background-color: $hero-bg;
   color: #ffffff;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   width: 100%;
   display: flex;
   align-items: center;
@@ -89,32 +89,41 @@ $hero-yellow-hover: #d99b13 !default;
   h1, .h1 {
     font-family: "Oswald", "Poppins", sans-serif;
     font-weight: 700;
-    line-height: 1.05;
+    line-height: 1.08;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     color: #ffffff;
     margin-bottom: 1.25rem;
+    font-size: 2.15rem;
 
     .text-yellow {
       color: $hero-yellow;
       display: block;
     }
 
+    @include media-up(sm) {
+      font-size: 2.5rem;
+    }
+
     @include media-up(md) {
+      font-size: 3rem;
       line-height: 1.04;
       margin-bottom: 1.35rem;
     }
 
     @include media-up(lg) {
+      font-size: 3.25rem;
       margin-bottom: 1.5rem;
     }
 
     @include media-up(xl) {
+      font-size: 3.75rem;
       line-height: 1.02;
       margin-bottom: 1.75rem;
     }
 
     @include media-up(xxxl) {
+      font-size: 4.25rem;
       margin-bottom: 2rem;
     }
   }
@@ -163,6 +172,7 @@ $hero-yellow-hover: #d99b13 !default;
     flex-direction: column;
     gap: 0.75rem;
     margin-bottom: 1.75rem;
+    width: 100%;
 
     @include media-up(sm) {
       flex-direction: row;
@@ -170,6 +180,7 @@ $hero-yellow-hover: #d99b13 !default;
       align-items: center;
       gap: 1rem;
       margin-bottom: 2rem;
+      width: auto;
     }
 
     @include media-up(xl) {
@@ -179,6 +190,7 @@ $hero-yellow-hover: #d99b13 !default;
 
     // Primary Yellow Button
     .btn-jcb-primary {
+      width: 100%;
       height: 44px;
       background-color: $hero-yellow;
       color: #000000;
@@ -197,6 +209,7 @@ $hero-yellow-hover: #d99b13 !default;
       transition: background-color 0.15s ease, transform 0.15s ease;
 
       @include media-up(sm) {
+        width: auto;
         height: 46px;
         padding: 0 1.5rem;
         letter-spacing: 0.6px;
@@ -226,6 +239,7 @@ $hero-yellow-hover: #d99b13 !default;
 
     // Secondary Outline Button
     .btn-jcb-outline {
+      width: 100%;
       height: 44px;
       background-color: transparent;
       color: #ffffff;
@@ -242,6 +256,7 @@ $hero-yellow-hover: #d99b13 !default;
       transition: all 0.2s ease;
 
       @include media-up(sm) {
+        width: auto;
         height: 46px;
         padding: 0 1.4rem;
         gap: 0.6rem;
@@ -380,41 +395,39 @@ $hero-yellow-hover: #d99b13 !default;
     .showcase-frame {
       position: relative;
       width: 100%;
-      max-width: 320px;
+      max-width: 360px;
+      aspect-ratio: 1.05 / 1;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
       border-radius: 2px;
       overflow: hidden;
 
       @include media-up(sm) {
-        max-width: 360px;
-      }
-
-      @include media-up(md) {
         max-width: 400px;
       }
 
+      @include media-up(md) {
+        max-width: 440px;
+      }
+
       @include media-up(lg) {
-        max-width: 420px;
+        max-width: 440px;
         box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
       }
 
       @include media-up(xl) {
-        max-width: 470px;
+        max-width: 480px;
       }
 
       @include media-up(xxl) {
-        max-width: 500px;
-      }
-
-      @include media-up(xxxl) {
-        max-width: 540px;
+        max-width: 520px;
       }
 
       .equipment-img {
         display: block;
         width: 100%;
-        height: auto;
+        height: 100%;
         object-fit: cover;
+        object-position: center 42%;
       }
     }
   }
@@ -452,15 +465,27 @@ $hero-yellow-hover: #d99b13 !default;
   .standards-track {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    row-gap: 0.4rem;
-    column-gap: 0;
-    text-align: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0.65rem;
+    padding: 0.25rem 0.5rem;
     margin: 0 auto;
 
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
     @include media-up(md) {
+      justify-content: center;
+      flex-wrap: wrap;
+      overflow-x: visible;
       row-gap: 0.5rem;
+      column-gap: 0;
+      gap: 0;
+      padding: 0;
     }
 
     @include media-up(xl) {
@@ -662,11 +687,13 @@ $hero-yellow-hover: #d99b13 !default;
     flex-direction: column;
     justify-content: flex-end;
     text-decoration: none;
-    aspect-ratio: 241 / 346;
+    aspect-ratio: 16 / 11;
+    min-height: 260px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 
     @include media-up(sm) {
+      aspect-ratio: 241 / 346;
       min-height: 340px;
     }
 
@@ -995,6 +1022,7 @@ $hero-yellow-hover: #d99b13 !default;
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: top center;
         display: block;
         transition: transform 0.35s cubic-bezier(0.2, 0, 0.2, 1);
       }
@@ -1201,6 +1229,7 @@ $hero-yellow-hover: #d99b13 !default;
   // Main Section Title
   .section-title {
     font-family: "Oswald", "Poppins", sans-serif;
+    font-size: 1.85rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -1208,8 +1237,17 @@ $hero-yellow-hover: #d99b13 !default;
     line-height: 1.05;
     margin: 0;
 
+    @include media-up(sm) {
+      font-size: 2.25rem;
+    }
+
     @include media-up(md) {
+      font-size: 2.75rem;
       line-height: 1.04;
+    }
+
+    @include media-up(xl) {
+      font-size: 3.25rem;
     }
   }
 
@@ -1261,12 +1299,17 @@ $hero-yellow-hover: #d99b13 !default;
     transition: background-color 0.2s ease, border-color 0.2s ease;
     position: relative;
 
+    &:last-child {
+      border-bottom: none;
+    }
+
     @include media-up(sm) {
       &:nth-child(odd) {
         border-right: 1px solid rgba(255, 255, 255, 0.08);
       }
       &:last-child {
         grid-column: span 2;
+        border-bottom: none;
       }
     }
 
@@ -1450,12 +1493,14 @@ $hero-yellow-hover: #d99b13 !default;
     overflow: hidden;
     background-color: #161616;
     box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+    aspect-ratio: 1 / 1;
 
     .rigging-img {
       width: 100%;
-      height: auto;
+      height: 100%;
       display: block;
       object-fit: cover;
+      object-position: top center;
     }
   }
 
@@ -1466,7 +1511,7 @@ $hero-yellow-hover: #d99b13 !default;
     right: 0;
     background-color: #f4b01c;
     color: #000000;
-    padding: 1.15rem 1.25rem;
+    padding: 0.85rem 1rem;
     border-radius: 2px;
     width: 82%;
     max-width: 250px;
@@ -1776,13 +1821,17 @@ $hero-yellow-hover: #d99b13 !default;
   // Main Section Title
   .section-title {
     font-family: "Oswald", "Poppins", sans-serif;
-    font-size: 2.25rem;
+    font-size: 1.85rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     color: #111111;
     line-height: 1.02;
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.5rem;
+
+    @include media-up(sm) {
+      font-size: 2.35rem;
+    }
 
     @include media-up(md) {
       font-size: 2.75rem;
@@ -2082,6 +2131,19 @@ $hero-yellow-hover: #d99b13 !default;
       gap: 0.5rem;
       text-decoration: none;
 
+      .brand-jcb-logo {
+        height: 28px;
+        width: auto;
+        border-radius: 2px;
+        display: inline-block;
+        vertical-align: middle;
+        flex-shrink: 0;
+
+        @include media-up(md) {
+          height: 32px;
+        }
+      }
+
       .brand-jcb-badge {
         background-color: #f4b01c;
         color: #000000;
@@ -2133,6 +2195,7 @@ $hero-yellow-hover: #d99b13 !default;
 
   .footer-newsletter-form {
     max-width: 320px;
+    width: 100%;
 
     .newsletter-input-group {
       display: flex;
@@ -2149,6 +2212,7 @@ $hero-yellow-hover: #d99b13 !default;
         font-size: 0.8125rem;
         padding: 0.55rem 0.85rem;
         flex: 1;
+        min-width: 0;
         outline: none;
         transition: border-color 0.2s ease;
 

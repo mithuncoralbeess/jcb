@@ -81,13 +81,27 @@ $container-padding-x: 1.5rem !default;
 // Container Styles & Derivation (Mobile-First)
 // ==========================================
 
+// ==========================================
+// Base Reset & Mobile-First Foundation
+// ==========================================
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 .container,
 %container {
   width: 100%;
   margin-right: auto;
   margin-left: auto;
-  padding-right: $container-padding-x;
-  padding-left: $container-padding-x;
+  padding-right: 1rem;
+  padding-left: 1rem;
+
+  @include media-up(sm) {
+    padding-right: $container-padding-x;
+    padding-left: $container-padding-x;
+  }
 
   // Deriving container max-widths upward via min-width queries
   @each $breakpoint, $max-width in $container-max-widths {
@@ -101,8 +115,13 @@ $container-padding-x: 1.5rem !default;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
-  padding-right: $container-padding-x;
-  padding-left: $container-padding-x;
+  padding-right: 1rem;
+  padding-left: 1rem;
+
+  @include media-up(sm) {
+    padding-right: $container-padding-x;
+    padding-left: $container-padding-x;
+  }
 }
 
 // ==========================================
